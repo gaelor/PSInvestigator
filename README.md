@@ -8,7 +8,6 @@ Outil d'investigation PowerShell (à voir par la suite pour la remédiation).
 
 
 #Périmètre
-
 Audit des évènements systèmes
 
 Audit système (config+réseau)
@@ -27,7 +26,6 @@ Audit des applications ([config|interpreter]/droits d'administration/FileSystem/
 
 
 #Liste des outils utilises
-
 System Monitor: https://github.com/darkoperator/Posh-Sysmon
 
 System Policies: https://github.com/dsccommunity/SecurityPolicyDsc
