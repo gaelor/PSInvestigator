@@ -1,14 +1,20 @@
-# PSInvestigator
+# PSInvestigator Objectifs
 Outil d'investigation PowerShell (à voir par la suite pour la remédiation).
-
+Auditer les systèmes Microsoft
 
 
 #Acteurs
 
+Opérateurs du SOC
+Auditeurs
+Commanditaire de l'audit
+Client SOC
+Responsable Commercial
 
 
 #Systèmes
 
+Windows Workstation & Windows Server
 
 
 #Périmètre
