@@ -24,10 +24,14 @@ Audit des évènements systèmes
 Audit système (config+réseau)
 
 Audit services
+(get-services-> Tout sauf MachineName)
 
 Audit process
+https://gist.github.com/atifaziz/9390344
 
-Audit des comptes/groupes locaux (get-localgroup-> Name/Description/SID)
+Audit des comptes/groupes locaux 
+(get-localgroup-> Tout sauf PrincipalSource/ObjectClass)
+(get-localuser-> Tout sauf PrincipalSource/ObjectClass)
 
 Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
