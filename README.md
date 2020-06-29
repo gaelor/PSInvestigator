@@ -27,7 +27,7 @@ Audit services
 
 Audit process
 
-Audit des comptes locaux
+Audit des comptes/groupes locaux (get-localgroup-> Name/Description/SID)
 
 Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
