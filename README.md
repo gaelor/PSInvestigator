@@ -21,8 +21,6 @@ Windows Workstation & Windows Server
 
 Audit des évènements systèmes (Get-EventLog -LogName * |ForEach-Object {$LogName = $_.Log;Get-EventLog -LogName $LogName -ErrorAction SilentlyContinue})
 
-Audit système (config+réseau)
-
 Audit services
 (get-services-> Tout sauf MachineName)
 
@@ -32,6 +30,8 @@ https://gist.github.com/atifaziz/9390344
 Audit des comptes/groupes locaux 
 (get-localgroup-> Tout sauf PrincipalSource/ObjectClass)
 (get-localuser-> Tout sauf PrincipalSource/ObjectClass)
+
+Audit système (config+réseau)
 
 Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
