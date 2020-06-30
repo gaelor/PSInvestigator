@@ -19,7 +19,7 @@ Windows Workstation & Windows Server
 
 #Périmètre
 
-Audit des évènements systèmes
+Audit des évènements systèmes (Get-EventLog -LogName * |ForEach-Object {$LogName = $_.Log;Get-EventLog -LogName $LogName -ErrorAction SilentlyContinue})
 
 Audit système (config+réseau)
 
