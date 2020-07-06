@@ -38,6 +38,8 @@ Audit des comptes/groupes locaux
 (get-localuser-> Tout sauf PrincipalSource/ObjectClass)
 
 Audit système (config+réseau)
+https://github.com/SConstantinou/SysInfo
+https://github.com/SConstantinou/SysInfo
 
 Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
