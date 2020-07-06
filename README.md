@@ -19,7 +19,13 @@ Windows Workstation & Windows Server
 
 #Périmètre
 
-Audit des évènements systèmes (Get-EventLog -LogName * |ForEach-Object {$LogName = $_.Log;Get-EventLog -LogName $LogName -ErrorAction SilentlyContinue})
+Audit des évènements systèmes
+$Date_Begin = (Get-Date) - (New-TimeSpan -Day 2)
+$categories = Get-WinEvent -Listlog * -EA silentlycontinue | where {$_.RecordCount -ne 0}
+Foreach ($element in $categories)
+{
+ Get-WinEvent -FilterHashtable @{LogName=$element.LogName; StartTime=$Date_Begin}
+}
 
 Audit services
 (get-services-> Tout sauf MachineName)
