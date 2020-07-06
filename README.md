@@ -19,8 +19,11 @@ Windows Workstation & Windows Server
 #Description de la ligne de commande
 
 ./PSInvestigator -Help
+
 ./PSInvestigator -All
+
 ./PSInvestigator -Audit 'Services,Accounts'
+
 
 #Périmètre
 
