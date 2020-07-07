@@ -27,7 +27,7 @@ Windows Workstation & Windows Server
 
 #Périmètre
 
-Audit des évènements systèmes
+- Audit des évènements systèmes
 $Date_Begin = (Get-Date) - (New-TimeSpan -Day 2)
 $categories = Get-WinEvent -Listlog * -EA silentlycontinue | where {$_.RecordCount -ne 0}
 Foreach ($element in $categories)
@@ -35,25 +35,25 @@ Foreach ($element in $categories)
  Get-WinEvent -FilterHashtable @{LogName=$element.LogName; StartTime=$Date_Begin}
 }
 
-Audit services
-(get-services-> Tout sauf MachineName) --> OK
+- Audit services
+(get-services-> Tout sauf MachineName) --> OK (Fichier Get-Service)
 
-Audit process
-https://gist.github.com/atifaziz/9390344
+- Audit process
+https://gist.github.com/atifaziz/9390344 --> OK (Revoir et commenter fonction Get-ProcessTree dans Get-Process)
 
-Audit des comptes/groupes locaux 
-(get-localgroup-> Tout sauf PrincipalSource/ObjectClass) --> OK
-(get-localuser-> Tout sauf PrincipalSource/ObjectClass) --> OK
+- Audit des comptes/groupes locaux 
+(get-localgroup-> Tout sauf PrincipalSource/ObjectClass) --> OK (Fichier Get-LocalUser)
+(get-localuser-> Tout sauf PrincipalSource/ObjectClass) --> OK(Fichier Get-LocalUser)
 
-Audit système (config+réseau)
-https://github.com/SConstantinou/SysInfo
-https://github.com/SConstantinou/SysInfo
+- Audit système (config+réseau)
+https://github.com/SConstantinou/SysInfo --> OK(Fichier Get-SysInfo.ps1 dans Get-SysInfo)
 
-Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
-Audit des vulnérabilités et exploits
+- Audit des droits sur les répertoires systèmes (voir pour check intégrité)
 
-Audit des applications ([config|interpreter]/droits d'administration/FileSystem/Vulnérabilités)
+- Audit des vulnérabilités et exploits
+
+- Audit des applications ([config|interpreter]/droits d'administration/FileSystem/Vulnérabilités)
 
 
 
