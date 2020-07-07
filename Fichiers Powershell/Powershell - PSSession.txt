@@ -1,0 +1,44 @@
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-7
+
+
+#Ouvrir une session Powershell à distance sur la cible
+Enter-PSSession -CoputerName nom_serveur_distant 
+
+
+#Comment exécuter un script à distance (ps1 par exemple) ?
+invoke-command -computername my_remote_host {C:\ps1\test_remote_exec.ps1 Arg1 Arg2 Arg3 Arg4}
+
+
+
+
+
+#Autoriser PSRemoting sans tenir compte du profil réseau (public ou privé)
+Enable-PSRemoting -SkipNetworkProfileCheck -Force
+WinRM firewall exception enabled.
+Configured LocalAccountTokenFilterPolicy to grant administrative rights remotely to local users.
+
+
+#Use Get-NetConnectionProfile pour voir le type de connexion pour chaque interface réseau
+Get-NetConnectionProfile
+
+#Use the Set-NetConnectionProfile to change the location type:
+Set-NetConnectionProfile -InterfaceAlias Ethernet -NetworkCategory Private
+#ou
+Set-NetConnectionProfile -InterfaceIndex 14 -NetworkCategory Private
+
+
+#Configure a computer to receive remote commands without a confirmation prompt
+Enable-PSRemoting -Force
+
+
+
+
+
+
+
+
+
+
+
+
+

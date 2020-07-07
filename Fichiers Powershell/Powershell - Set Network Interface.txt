@@ -1,0 +1,95 @@
+Set-DnsClientServerAddress -->
+https://docs.microsoft.com/en-us/powershell/module/dnsclient/set-dnsclientserveraddress?view=win10-ps
+
+Set-NetIPInterface -->
+https://docs.microsoft.com/en-us/powershell/module/nettcpip/set-netipinterface?view=win10-ps
+
+Set-NetIPAddress -->
+https://docs.microsoft.com/en-us/powershell/module/nettcpip/set-netipaddress?view=win10-ps
+
+
+
+# The Set-NetIPAddress cmdlet modifies IP address configuration properties of an existing IP address.
+
+# To create an IPv4 address or IPv6 address, use the New-NetIPAddress cmdlet.
+
+New-NetIPAddress –IPAddress <ip_address> -DefaultGateway <default_gateway> -PrefixLength <subnet_mask_in_bit_format> -InterfaceIndex (Get-NetAdapter).InterfaceIndex
+
+
+
+# Remove the static IP
+Remove-NetIpAddress -InterfaceAlias Ethernet -Confirm:$False
+
+# Remove the default Gateway
+Remove-NetRoute -InterfaceAlias Ethernet -Confirm:$False
+
+# Remove static IP & Default Gateway at the same time
+Remove-NetIpAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -Confirm:$False ; Remove-NetRoute -InterfaceIndex (Get-NetAdapter).InterfaceIndex -Confirm:$False
+
+# Add the new IP and Gateway
+New-NetIPAddress -IPAddress 192.168.1.47 -DefaultGateway 192.168.1.1 -PrefixLength 24 -InterfaceIndex (Get-NetAdapter).InterfaceIndex
+
+
+
+
+# DNS ADDRESS
+
+Set-DNSClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -ServerAddresses <ip1>,<ip2>, etc.
+
+Example 1: Set the DNS server addresses on an interface with a specified index value
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -ServerAddresses ("192.168.1.14","8.8.8.8")
+
+
+
+Example 2: Reset a DNS client to use the default DNS server addresses
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex2 -ResetServerAddresses
+
+
+
+
+=========================================================================================================================================
+#FONCTIONNEL
+
+#1
+Get-NetIpConfiguration | Export-csv -Path "$env:TEMP\Get-NetIpConf$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
+
+
+#2
+Get-NetIpaddress | Export-csv -Path "$env:TEMP\Get-NetIpaddress$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
+
+
+#3
+C:\Windows\system32> Get-NetConnectionProfile
+
+Name             : Metsys 3
+InterfaceAlias   : vEthernet (Switch EXT)
+InterfaceIndex   : 22
+NetworkCategory  : Public
+IPv4Connectivity : Internet
+IPv6Connectivity : NoTraffic
+
+C:\Windows\system32> Set-NetConnectionProfile -InterfaceIndex 22 -NetworkCategory Private
+C:\Windows\system32> Get-NetConnectionProfile                                                                                              
+
+Name             : Metsys 3
+InterfaceAlias   : vEthernet (Switch EXT)
+InterfaceIndex   : 22
+NetworkCategory  : Private
+IPv4Connectivity : Internet
+IPv6Connectivity : NoTraffic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
