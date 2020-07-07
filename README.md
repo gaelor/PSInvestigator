@@ -36,14 +36,14 @@ Foreach ($element in $categories)
 }
 
 Audit services
-(get-services-> Tout sauf MachineName)
+(get-services-> Tout sauf MachineName) --> OK
 
 Audit process
 https://gist.github.com/atifaziz/9390344
 
 Audit des comptes/groupes locaux 
-(get-localgroup-> Tout sauf PrincipalSource/ObjectClass)
-(get-localuser-> Tout sauf PrincipalSource/ObjectClass)
+(get-localgroup-> Tout sauf PrincipalSource/ObjectClass) --> OK
+(get-localuser-> Tout sauf PrincipalSource/ObjectClass) --> OK
 
 Audit système (config+réseau)
 https://github.com/SConstantinou/SysInfo
