@@ -76,7 +76,7 @@ Get-WinEvent –FilterHashtable @{logname='application'; level=1,2,3} -ComputerN
 
 
 =============================================================================================================================================================================================================================================================================================
-#Fonctionnel
+#FONCTIONNEL
 
 #1 - Récupération d'un type de logs sur le jour même
 $categories = Get-WinEvent -Listlog System -EA silentlycontinue | where-object { $_.recordcount -AND $_.lastwritetime -gt [datetime]::today}
@@ -205,12 +205,31 @@ Foreach ($element in $categories)
 $categories | ForEach-Object{ Get-WinEvent -LogName $_.Logname } | Export-csv -Path "$env:TEMP\Get-WinApp055_$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
 
 
+#12
+
+$Date_Begin = Get-Date.AddDays(-5)
+$categories = Get-WinEvent -Listlog * -EA silentlycontinue | where {$_.RecordCount -ne 0}
+Foreach ($element in $categories)
+{
+ Get-WinEvent -FilterHashtable @{LogName=$element.LogName; StartTime=$Date_Begin; EndTime=[datetime]::Today}
+}
+Export-csv -Path "$env:TEMP\Get-WinEventDate_$(Get-Date -f dd-MM-yyyy).csv" -NoTypeInformation
+
+
+--> #Message problématique à la fin de la commande
+cmdlet Export-Csv at command pipeline position 1
+Supply values for the following parameters:
+InputObject:
+--> #peu importe l'entrée, le fichier csv ne comprend qu'une seule case
+
+
+
 
 
 #Code Gaelor
 
 $Date_Begin = (Get-Date) - (New-TimeSpan -Day 2)
-$categories = Get-WinEvent -Listlog * -EA silentlycontinue
+$categories = Get-WinEvent -Listlog * -EA silentlycontinue | where {$_.RecordCount -ne 0}
 Foreach ($element in $categories)
 {
  Get-WinEvent -FilterHashtable @{LogName=$element.LogName; StartTime=$Date_Begin}
@@ -219,8 +238,7 @@ Foreach ($element in $categories)
 
 
 
-
-
+(Get-Date) - (New-TimeSpan -Day 1)
 
 
 

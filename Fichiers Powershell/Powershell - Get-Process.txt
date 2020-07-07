@@ -21,7 +21,7 @@ function Get-ProcessTree
     $pids         = $processes | select -ExpandProperty ProcessId
     $parents      = $processes | select -ExpandProperty ParentProcessId -Unique
     $liveParents  = $parents | ? { $pids -contains $_ }
-    $deadParents  = Compare-Object -ReferenceObject $parents -DifferenceObject $liveParents `
+    $deadParents  = Compare-Object -ReferenceObject $parents -DifferenceObject $liveParents 
                   | select -ExpandProperty InputObject
     $processByParent = $processes | Group-Object -AsHashTable ParentProcessId
     
@@ -31,17 +31,17 @@ function Get-ProcessTree
         $parentProcessId = $process.ParentProcessId
         $process = Get-Process -Id $id -ComputerName $computerName
         $indent = New-Object String(' ', ($level * $indentSize))
-        $process `
-        | Add-Member NoteProperty ParentId $parentProcessId -PassThru `
-        | Add-Member NoteProperty Level $level -PassThru `
+        $process 
+        | Add-Member NoteProperty ParentId $parentProcessId -PassThru 
+        | Add-Member NoteProperty Level $level -PassThru 
         | Add-Member NoteProperty IndentedName "$indent$($process.Name)" -PassThru 
-        $processByParent.Item($id) `
-        | ? { $_ } `
+        $processByParent.Item($id) 
+        | ? { $_ } 
         | % { Write-ProcessTree $_ ($level + 1) }
     }
 
-    $processes `
-    | ? { $_.ProcessId -ne 0 -and ($_.ProcessId -eq $_.ParentProcessId -or $deadParents -contains $_.ParentProcessId) } `
+    $processes 
+    | ? { $_.ProcessId -ne 0 -and ($_.ProcessId -eq $_.ParentProcessId -or $deadParents -contains $_.ParentProcessId) } 
     | % { Write-ProcessTree $_ }
 }
 

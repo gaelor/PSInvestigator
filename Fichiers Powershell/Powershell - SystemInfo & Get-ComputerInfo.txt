@@ -15,7 +15,17 @@ Get-ComputerInfo
 Get-ComputerInfo -Property "os*"
 
 
+=========================================================================================================================
+# FONCTIONNEL
 
+#1
+Get-ComputerInfo | more | Export-csv -Path "$env:TEMP\Get-ComputerInfo$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
+ou
+$ComputerInfo = Get-ComputerInfo
+$ComputerInfo | Export-csv -Path "$env:TEMP\Get-ComputerInfo$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
+
+
+#2
 
 
 
