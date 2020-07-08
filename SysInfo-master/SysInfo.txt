@@ -1,0 +1,90 @@
+https://github.com/SConstantinou/SysInfo
+
+PS C:\> Install-Module Sysinfo
+
+PS C:\Windows\system32> Get-baseboard                                                                                                        
+
+Manufacturer : Dell Inc.
+Model        :
+Name         : Base Board
+Product      : 07WDVW
+SerialNumber : /5PZ6L33/CNCMK0004F0A35/
+SKU          :
+
+
+
+PS C:\Windows\system32> Get-DiskPartition                                                                                                    
+
+BootPartition    : False
+Index            : 0
+Name             : Disk #1, Partition #0
+NumberOfBlocks   : 16771072
+PrimaryPartition : True
+Size             : 8586788864
+SystemName       : 5PZ6L33
+
+BootPartition    : True
+Index            : 0
+Name             : Disk #0, Partition #0
+NumberOfBlocks   : 368640
+PrimaryPartition : True
+Size             : 188743680
+SystemName       : 5PZ6L33
+
+BootPartition    : False
+Index            : 1
+Name             : Disk #0, Partition #1
+NumberOfBlocks   : 997552128
+PrimaryPartition : True
+Size             : 510746689536
+SystemName       : 5PZ6L33
+
+BootPartition    : False
+Index            : 2
+Name             : Disk #0, Partition #2
+NumberOfBlocks   : 2027520
+PrimaryPartition : False
+Size             : 1038090240
+SystemName       : 5PZ6L33
+
+
+
+PS C:\Windows\system32> Get-DiskDrive                                                                                                        
+
+Caption    : Microsoft Virtual Disk
+DeviceID   : \\.\PHYSICALDRIVE1
+Model      : Microsoft Virtual Disk
+Partitions : 1
+Size       : 8587192320
+SystemName : 5PZ6L33
+
+Caption    : PC601 NVMe SK hynix 512GB
+DeviceID   : \\.\PHYSICALDRIVE0
+Model      : PC601 NVMe SK hynix 512GB
+Partitions : 3
+Size       : 512105932800
+SystemName : 5PZ6L33
+
+
+
+PS C:\> Get-BIOS; Get-Battery; Get-BaseBoard                                                                                 
+
+Manufacturer      : Dell Inc.
+Name              : 1.6.1
+SerialNumber      : 5PZ6L33
+SMBIOSBIOSVersion : 1.6.1
+SystemName        :
+Version           : DELL   - 1072009
+
+BatteryStatus  : Unknown - The system has access to AC so no battery is being discharged. However, the battery is not necessarily charging.
+DesignCapacity :
+Name           : DELL 829MX04
+Status         : OK
+SystemName     : 5PZ6L33
+
+Manufacturer : Dell Inc.
+Model        :
+Name         : Base Board
+Product      : 07WDVW
+SerialNumber : /5PZ6L33/CNCMK0004F0A35/
+SKU          :
