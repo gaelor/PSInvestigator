@@ -1,0 +1,27 @@
+https://github.com/darkoperator/Posh-Sysmon
+
+PS C:\> Install-Module -Name Posh-Sysmon
+
+PS C:\> New-SysmonConfiguration -Path .\Test-laurent.xml -HashingAlgorithm IMPHASH,SHA1 -Network -Comment "Sysmon test PC laurent" -Verbose
+
+VERBOSE: Enabling hashing algorithms : IMPHASH,SHA1
+VERBOSE: Enabling network connection logging for all connections by setting no filter and onmatch to exclude.
+VERBOSE: Config file created as C:\Windows\system32\Test-laurent.xml
+VERBOSE: Configuration is for Sysmon 8.0
+
+
+
+PS C:\> Get-SysmonRule -Path .\Test-laurent.xml
+
+
+EventType     : NetworkConnect
+Scope         : All Events
+DefaultAction : Exclude
+Filters       :
+
+
+
+PS C:\> Get-SysmonRules -Path .\Test-laurent.xml | select -ExpandProperty Filters
+#Get-SysmonRules : The term 'Get-SysmonRules' is not recognized as the name of a cmdlet, function, script file, or operable program
+--> Get-SysmonRule -Path .\Test-laurent.xml | select -ExpandProperty Filters
+

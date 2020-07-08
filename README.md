@@ -59,12 +59,12 @@ Audit des applications ([config|interpreter]/droits d'administration/FileSystem/
 
 #Liste des outils utilises
 
-System Monitor: https://github.com/darkoperator/Posh-Sysmon
+System Monitor: https://github.com/darkoperator/Posh-Sysmon --> NOK --> Get-SysmonRule -Path Test-laurent.xml / Ne renvoi aucun filtre
 
-System Policies: https://github.com/dsccommunity/SecurityPolicyDsc
+System Policies: https://github.com/dsccommunity/SecurityPolicyDsc --> NOK
 
-Vulnerability Checks: https://github.com/vulmon/Vulmap
+Vulnerability Checks: https://github.com/vulmon/Vulmap --> Test OK
 
-FS Permissions: https://github.com/raandree/NTFSSecurity
+FS Permissions: https://github.com/raandree/NTFSSecurity --> 
 
 Security Tools: https://github.com/darkoperator/Posh-SecMod
