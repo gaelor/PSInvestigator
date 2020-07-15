@@ -24,6 +24,9 @@ Windows Workstation & Windows Server
 
 ./PSInvestigator -Audit 'Services,Accounts'
 
+./PSInvestigator -Audit 'Services,Accounts' -Remote '192.168.1.1,10.2.6.1-10.2.7.76,test1.local,test2.local'
+
+./PSInvestigator -All -Remote '192.168.1.1,10.2.6.1-10.2.7.76,test1.local,test2.local'
 
 #Périmètre
 
