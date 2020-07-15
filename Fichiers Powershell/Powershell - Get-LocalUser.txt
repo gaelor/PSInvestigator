@@ -22,3 +22,7 @@ Get-LocalGroup | Select -ExcludeProperty PrincipalSource, ObjectClass | Export-c
 
 
 
+
+
+# - Récupère la liste de tous les utilisateurs AD
+PS C:\Windows\system32> Get-AzADUser

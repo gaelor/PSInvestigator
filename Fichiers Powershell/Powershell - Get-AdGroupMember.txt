@@ -25,3 +25,13 @@ SID               : S-1-5-21-2833972186-446423217-742356013-1601
 #Récupération des utilisateurs AD à distance (Attention au Credential prompt)
 PS C:\Users\Administrator> Enter-PSSession -ComputerName ad -Credential LAB\administrator
 [ad]: PS C:\Users\Administrator\Documents> Get-AdGroupMember
+
+
+
+
+
+# - Récupère la liste de tous les groupes AD
+PS C:\Windows\system32> Get-AzADGroup | Export-csv -Path "$env:TEMP\GetAzADGroup_$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
+
+# - Récupère la liste de tous les utilisateurs AD
+PS C:\Windows\system32> Get-AzADUser | Export-csv -Path "$env:TEMP\GetAzADUser_$(get-date -f dd-MM-yyyy).csv" -NoTypeInformation
