@@ -1,0 +1,36 @@
+#Dans une fenêtre Powershell, lancer la commande suivante :
+iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/vulmon/Vulmap/master/Vulmap-Windows/vulmap-windows.ps1')
+
+
+# - Default mode. Conducts a vulnerability scanning:
+PS> Invoke-Vulmap
+
+# - Conducts a vulnerability scanning and only shows vulnerabilities that have exploits:
+PS> Invoke-Vulmap -OnlyExploitableVulns
+
+# - Downloads given exploit:
+PS> Invoke-Vulmap -DownloadExploit EDB9386
+
+# - Scans the computer and downloads all available exploits:
+PS> Invoke-Vulmap -DownloadAllExploits
+
+# - Collects software inventory but does not conduct a vulnerability scanning. Software inventory will be saved as 'inventory.json' in default:
+PS> Invoke-Vulmap -Mode CollectInventory
+
+# - Collects software inventory and save it with given file name. Does not conduct a vulnerability scanning:
+PS> Invoke-Vulmap -Mode CollectInventory -InventoryOutFile pc0001.json
+
+# - Conducts a vulnerability scanning and saves software inventory to inventory.json file:
+PS> Invoke-Vulmap -SaveInventoryFile
+
+# - Conducts a vulnerability scanning and saves software inventory to given file name:
+PS> Invoke-Vulmap -SaveInventoryFile -InventoryOutFile pc0001.json
+
+# - Conducts a vulnerability scanning based on software inventory from file. Software inventory will be loaded from 'inventory.json' in default:
+PS> Invoke-Vulmap -ReadFromFile
+
+# - Conducts a vulnerability scanning based on software inventory file loaded from given file name:
+PS> Invoke-Vulmap -ReadFromFile -InventoryInFile pc0001.json
+
+# - Conducts a vulnerability scanning through an HTTP proxy:
+PS> Invoke-Vulmap -Proxy http://127.0.0.1:8080

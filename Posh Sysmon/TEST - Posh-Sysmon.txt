@@ -1,0 +1,53 @@
+https://github.com/darkoperator/Posh-Sysmon
+
+# Install Module
+
+PS C:\Windows\system32> Install-Module -Name Posh-Sysmon  
+
+
+
+# Create a XML Configuration File
+
+PS C:\Windows\system32> New-SysmonConfiguration -Path .\pc_laurent.xml -HashingAlgorithm IMPHASH,SHA1 -Network -Comment "Sysmon config for laurent's desktop" -Verbose   
+
+VERBOSE: Enabling hashing algorithms : IMPHASH,SHA1
+VERBOSE: Enabling network connection logging for all connections by setting no filter and onmatch to exclude.
+VERBOSE: Config file created as C:\Windows\system32\pc_laurent.xml
+VERBOSE: Configuration is for Sysmon 8.0
+
+
+
+# Get configured Rules and Filters
+
+PS C:\Windows\system32> Get-SysmonRule -Path .\pc_laurent.xml                                                                                 
+
+EventType     : NetworkConnect
+Scope         : All Events
+DefaultAction : Exclude
+Filters       :
+
+
+
+# Create or Update a Rule and its Default Action
+
+PS C:\> Set-SysmonRule -Path .\pc_laurent.xml -EventType ImageLoad -Verbose
+VERBOSE: No rule for ImageLoad was found.
+VERBOSE: Creating rule for event type with action of Exclude
+VERBOSE: Action has been set.
+
+EventType     : ImageLoad
+Scope         : All Events
+DefaultAction : Exclude
+Filters       :
+
+
+
+
+
+# Remove One or More Filters
+
+PS C:\> Get-SysmonRule -Path .\pc_laurent.xml -EventType NetworkConnect
+
+
+
+

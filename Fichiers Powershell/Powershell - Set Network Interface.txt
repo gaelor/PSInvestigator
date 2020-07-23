@@ -34,8 +34,6 @@ New-NetIPAddress -IPAddress 192.168.1.47 -DefaultGateway 192.168.1.1 -PrefixLeng
 
 # DNS ADDRESS
 
-Set-DNSClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -ServerAddresses <ip1>,<ip2>, etc.
-
 Example 1: Set the DNS server addresses on an interface with a specified index value
 Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).InterfaceIndex -ServerAddresses ("192.168.1.14","8.8.8.8")
 
