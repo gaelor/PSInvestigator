@@ -3,7 +3,7 @@
 
 $PCName = Read-Host "Enter Server Name"
 $user = Read-Host "Enter Username"
-$pass = Read-Host "Enter Password"
+$pass = Read-Host "Enter Password" -AsSecureString
 $password = ConvertTo-SecureString $pass -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($user, $password)
 
