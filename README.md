@@ -37,12 +37,16 @@ Foreach ($element in $categories)
 {
  Get-WinEvent -FilterHashtable @{LogName=$element.LogName; StartTime=$Date_Begin}
 }
+-->Scripts Powershell\Get-WinEventSortXDays.ps1
+
 
 Audit services
 (get-services-> Tout sauf MachineName)
+-->Scripts Powershell\Get-ServiceDistant.ps1
 
 Audit process
 https://gist.github.com/atifaziz/9390344
+-->Scripts Powershell\Get-ProcessDistant.ps1
 
 Audit des comptes/groupes locaux 
 (get-localgroup-> Tout sauf PrincipalSource/ObjectClass)
@@ -52,9 +56,13 @@ Audit système (config+réseau)
 https://github.com/SConstantinou/SysInfo
 https://github.com/SConstantinou/SysInfo
 
+-->Scripts Powershell\Get-Bios, Get_processor etc etc
+
 Audit des droits sur les répertoires systèmes (voir pour check intégrité)
+-->Scripts Powershell\Get-DiscoverChildItem.ps1 (A compléter)
 
 Audit des vulnérabilités et exploits
+-->Scripts Powershell\Get-WinVulmapInventory.ps1
 
 Audit des applications ([config|interpreter]/droits d'administration/FileSystem/Vulnérabilités)
 
