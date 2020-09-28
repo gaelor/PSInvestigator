@@ -1,9 +1,0 @@
-https://docs.microsoft.com/en-us/powershell/module/storage/get-fileintegrity?view=win10-ps
-
-Get-FileIntegrity
-#Gets integrity information for a file on an ReFS volume.
-
-
-
-
-
